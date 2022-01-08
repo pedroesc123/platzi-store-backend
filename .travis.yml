@@ -1,0 +1,27 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+notifications:
+  slack: linkdelcanal
+  email:
+    recipients:
+      - frontendleader@gmail.com
+      - leader@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provide: heroku
+  skip_cleanup: true
+  keep_history: true
+  api_key: apiKey
+  app: platzi-store-backend
+  on:
+    repo: pedroesc123/ platzi-store-backend
